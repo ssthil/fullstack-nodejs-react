@@ -9,7 +9,7 @@ const PORT = 4000;
 const origin =
   process.env.NODE_ENV !== 'production'
     ? 'http://localhost:3000'
-    : 'https://5dffe8e0edcfad056c81cb79--gifted-galileo-f79074.netlify.com/';
+    : 'https://node-react-ssthil.netlify.com/';
 
 app.use(express.json());
 app.use(morgan('dev'));
