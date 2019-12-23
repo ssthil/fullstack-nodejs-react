@@ -21,6 +21,8 @@ app.get('/', async (req, res) => {
   const response = await axios.get(
     `https://randomuser.me/api/?results=${count}`
   );
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
   res.json({ data: response.data.results });
 });
 
