@@ -61,7 +61,6 @@ app.get('/', async (req, res) => {
     appId
   );
   res.json({ data: response.data });
-  // console.log(response);
 });
 
 app.get('/countries', async (req, res) => {
