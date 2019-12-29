@@ -53,8 +53,8 @@ app.get('/', async (req, res) => {
   // res.setHeader('Authorization', 'Bearer ' + TOKEN);
   // res.header('Authorization', 'Bearer 3NahEqOKF8a7qpwOTo');
   // req.headers.authorization = TOKEN;
-  /*  res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Credentials', 'true'); */
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', 'true');
   // @ts-ignore
   const response = await axios.get(
     `${config.open_weather_api.url}?q=${cityName}&units=metric`,
