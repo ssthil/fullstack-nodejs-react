@@ -205,18 +205,18 @@ function App() {
 
 const styles = {
   temp: {
-    fontSize: '4rem',
+    fontSize: '3rem',
     color: '#bbe0f1',
     background: '#104f7d',
-    width: '180px',
+    width: '120px',
     padding: '15px',
     borderRadius: '50%',
-    height: '180px',
+    height: '120px',
     border: '3px solid rgba(162, 187, 212, 0.21)',
     // textAlign: 'center',
     display: 'inline-block',
     margin: '15px auto',
-    lineHeight: '140px',
+    lineHeight: '100px',
   },
   card: {
     // background: 'rgba(7, 31, 43, 0.92)',
