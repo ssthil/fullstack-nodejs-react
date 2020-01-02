@@ -29,11 +29,13 @@ const accessKey = {
   },
 };
 
-const appId = {
+/* const appId = {
   params: {
-    appid: config.open_weather_api.appid,
+    appid: 'ed973fdb30d0fffb8da125f32e7c1f25', // config.open_weather_api.appid,
   },
-};
+}; */
+
+const appid = 'ed973fdb30d0fffb8da125f32e7c1f25';
 
 // @ts-ignore
 // axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`;
@@ -41,10 +43,12 @@ const appId = {
 // axios.defaults.headers.common.Authorization =
 //   'Authorization: Auth apiKey="1260ebdbf1855b4b6103abebc3372628"';
 
+const openWeatherApiURL = 'http://api.openweathermap.org/data/2.5/weather';
+
 app.get('/', async (req, res) => {
   // const count = req.query.count || 20;
   // req.query.units = 'metric';
-  const cityName = req.query.q || '';
+  const cityName = req.query.q || 'brussels';
   // req.query.query = 'Belgium';
   // const response = await axios.get(
   //   `${config.weather_api.url}?query=${cityName}`,
@@ -53,26 +57,36 @@ app.get('/', async (req, res) => {
   // res.setHeader('Authorization', 'Bearer ' + TOKEN);
   // res.header('Authorization', 'Bearer 3NahEqOKF8a7qpwOTo');
   // req.headers.authorization = TOKEN;
+  // @ts-ignore
+  const response = await axios.get(
+    `${openWeatherApiURL}?q=${cityName}&appid=${appid}&units=metric`
+  );
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'X-Requested-With, content-type'
   );
-  // @ts-ignore
-  const response = await axios.get(
-    `${config.open_weather_api.url}?q=${cityName}&units=metric`,
-    appId
-  );
+
   res.json({ data: response.data });
 });
 
-app.get('/countries', async (req, res) => {
+/* app.get('/countries', async (req, res) => {
   // @ts-ignore
   const response = await axios.get(config.countries_api.url);
   res.json({ data: response.data });
-});
+}); */
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
 });
+
+/* app.get('/', async (req, res) => {
+  const count = req.query.count || 20;
+  const response = await axios.get(
+    `https://randomuser.me/api/?results=${count}`
+  );
+  res.json({ data: response.data.results });
+}); */
+
+module.exports = app;

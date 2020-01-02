@@ -58,7 +58,10 @@ function App() {
   }, [url]);
 
   const inputChange = event => setCityName(event.target.value);
-  const submitCityName = () => setUrl(`${BASE_URL}/?q=${cityName}`);
+  const submitCityName = () => {
+    setUrl(`${BASE_URL}/?q=${cityName}`);
+    setCityName('');
+  };
   console.log(url);
   /* const enterCityName = e => {
     if (e.keyCode === 13) {
