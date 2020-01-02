@@ -27,7 +27,7 @@ import moment from 'moment';
 //   'https://www.elsetge.cat/myimg/f/85-852469_best-live-weather-wallpaper-minimal-live.png';
 
 function App() {
-  const [cityName, setCityName] = useState('');
+  const [cityName, setCityName] = useState('brussels');
   const [url, setUrl] = useState(`${BASE_URL}`);
   const [weather, setWeather] = useState({ cityWeather: null });
   const [isLoading, setIsLoading] = useState(false);
@@ -167,7 +167,7 @@ function App() {
             )}
             {cityWeather && (
               <Card style={styles.card}>
-                <CardBody style={{ padding: '2.5rem' }}>
+                <CardBody style={{ padding: '2.5rem' }} className="text-center">
                   <CardText style={styles.temp}>
                     {Math.round(cityWeather.main.temp)}
                     <span style={{ fontSize: '3rem' }}>°c</span>
@@ -210,7 +210,7 @@ const styles = {
     borderRadius: '50%',
     height: '180px',
     border: '3px solid rgba(162, 187, 212, 0.21)',
-    textAlign: 'center',
+    // textAlign: 'center',
     display: 'inline-block',
     margin: '15px auto',
     lineHeight: '140px',
@@ -218,9 +218,9 @@ const styles = {
   card: {
     // background: 'rgba(7, 31, 43, 0.92)',
     color: '#4bc1d0',
-    textAlign: 'center',
+    // textAlign: 'center',
     borderRadius: '8px',
-    border: 0,
+    border: 'none',
     backgroundImage: 'url(./assets/bg1.jpg)',
     background: 'rgba(23, 33, 62, 0.78)',
   },
