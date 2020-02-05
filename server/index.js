@@ -35,7 +35,7 @@ const accessKey = {
   },
 }; */
 
-const appid = config.open_weather_api.appid;
+const appid = 'ed973fdb30d0fffb8da125f32e7c1f25';
 
 // @ts-ignore
 // axios.defaults.headers.common['Authorization'] = `Bearer ${TOKEN}`;
