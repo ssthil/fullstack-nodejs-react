@@ -61,10 +61,17 @@ app.get('/', async (req, res) => {
   const response = await axios.get(
     `${openWeatherApiURL}?q=${cityName}&appid=${appid}&units=metric`
   );
-  res.header('Access-Control-Allow-Origin', '*');
+  /* res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', 'true');
   res.header('Access-Control-Allow-Headers', 'accept, content-type');
-  res.json({ data: response.data });
+  res.json({ data: response.data }); */
+  const headers = {
+    'Access-Control-Allow-Headers': 'Content-Type, Accept',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET',
+    'Content-Type': 'application/json',
+  };
+  res.writeHead(200, headers).end(JSON.stringify({ data: response.data }));
 });
 
 /* app.get('/countries', async (req, res) => {
