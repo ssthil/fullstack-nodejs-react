@@ -63,11 +63,7 @@ app.get('/', async (req, res) => {
   );
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Credentials', 'true');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-Requested-With, content-type'
-  );
-
+  res.header('Access-Control-Allow-Headers', 'accept, content-type');
   res.json({ data: response.data });
 });
 
